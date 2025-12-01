@@ -11,7 +11,7 @@ This repository contains both the **research paper** and a **working implementat
 ```
 vsdl/
 ├── paper/                          # Research Paper
-│   ├── VSDL_Paper.tex             # LaTeX source
+│   |
 │   └── VSDL_Paper.pdf             # Compiled PDF
 │
 ├── implementation/                 # Working Implementation
