@@ -73,7 +73,7 @@ The research paper presents:
 **Citation:**
 ```
 Sarah Abdullah Almehmadi, "Verifiable Smart Delegation Links: A Theoretical 
-Framework for Privacy-Preserving E-Government Delegation," 2024.
+Framework for Privacy-Preserving E-Government Delegation," 2025.
 ```
 
 ## Paper-to-Code Mapping
