@@ -156,19 +156,12 @@ Framework for Privacy-Preserving E-Government Delegation," 2026.
 
 
 
-| Paper Section | Concept | Code Location |
-
-|---------------|---------|---------------|
-
-| Section 4.1 Definition 2 | Field Commitment | `pedersen.js` - `commitField()` |
-
-| Section 4.1 Definition 3 | Record Commitment | `pedersen.js` - `commitRecord()` |
-
-| Section 4.3 | Verification Equation | `pedersen.js` - `verifyPartition()` |
-
-| Section 3.4 | Token structure (JWT) | `server.js` - JWT payload |
-
-| Algorithm 1 | Verification procedure | `server.js` - `/api/verify` |
+Paper Section,Concept,Code Location
+Section 4.1 Definition 2,Field Commitment,pedersen.js - commitField()
+Section 4.1 Definition 3,Record Commitment,pedersen.js - commitRecord()
+Section 4.3,Verification Equation,pedersen.js - verifyPartition()
+Section 3.4,Token structure (JWT),server.js - JWT payload
+Algorithm 1,Verification procedure,server.js - /api/verify
 
 
 
