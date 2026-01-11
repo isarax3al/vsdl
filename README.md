@@ -1,18 +1,17 @@
 # VSDL - Verifiable Smart Delegation Links
 
-> A Theoretical Framework for Privacy-Preserving E-Government Delegation with Working Implementation
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18210401.svg)](https://doi.org/10.5281/zenodo.18210401)
+
+### A Theoretical Framework for Privacy-Preserving E-Government Delegation with Working Implementation
 
 ## Overview
-
 This repository contains both the **research paper** and a **working implementation** of Verifiable Smart Delegation Links (VSDL) - a cryptographic framework for privacy-preserving delegation in e-government systems.
 
 ## Repository Structure
-
-```
+```bash
 vsdl/
 ├── paper/                          # Research Paper
-│   |
-│   └── VSDL_Paper.pdf             # Compiled PDF
+│   └── VSDL_Paper.pdf             # Compiled PDF (v1.0 - Zenodo Version)
 │
 ├── implementation/                 # Working Implementation
 │   ├── server.js                  # Express server with web UI
