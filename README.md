@@ -38,12 +38,12 @@ VSDL enables:
 
 ### Pedersen Commitment
 ```
-C = g^m · h^r
+C = g^m \cdot h^r
 ```
 
 ### Verification Equation
 ```
-C_D = C_H · C_F
+C_D = C_H \cdot C_F
 ```
 Where:
 - `C_D` = Full record commitment
@@ -72,7 +72,8 @@ The research paper presents:
 **Citation:**
 ```
 Sarah Abdullah Almehmadi, "Verifiable Smart Delegation Links: A Theoretical 
-Framework for Privacy-Preserving E-Government Delegation," 2025.
+Framework for Privacy-Preserving E-Government Delegation," 2026.
+DOI: [https://doi.org/10.5281/zenodo.18210401](https://doi.org/10.5281/zenodo.18210401)
 ```
 
 ## Paper-to-Code Mapping
