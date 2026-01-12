@@ -15,7 +15,7 @@
     "e-government",
     "privacy"
   ],
-  "author": "[Author Name]",
+  "author": "Sarah Abdullah Almehmadi",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
