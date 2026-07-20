@@ -42,6 +42,21 @@ Across tens of millions of iterations / millions of gated function-comparisons:
 
 The two implementations agreed on every gated input. **No vulnerability found.**
 
+### Strongest single signal (struct-borrow alphabet, property genuinely stressed)
+
+In runs over the struct-borrow alphabet (before the enum ops diluted the rejection rate), the
+generator produced **thousands of genuine reference-safety rejections** — and the two checkers
+still agreed on all of them:
+
+| seed | compared | graph_rej | regex_rej | divergence (either direction) |
+|---|---|---|---|---|
+| A | 6,018,451 | 7686 | 7686 | 0 |
+| B | 6,008,981 | 3910 | 3910 | 0 |
+
+~11,600 real rejections, `graph_rej == regex_rej` exactly, zero disagreement in either direction.
+This is the meaningful negative: where the property is actually exercised, the graph and regex
+analyses are behaviorally identical on this input class.
+
 ## The one real asymmetry (not exploitable)
 
 Before adding `StackUsageVerifier` to the gate, the graph checker **panicked** with
