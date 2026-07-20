@@ -57,6 +57,41 @@ still agreed on all of them:
 This is the meaningful negative: where the property is actually exercised, the graph and regex
 analyses are behaviorally identical on this input class.
 
+## Coverage-guided campaign (cargo-fuzz + libfuzzer)
+
+Beyond the blind/structured drivers, a real coverage-guided campaign was run with
+`cargo-fuzz 0.13.2` on nightly, using `diff_refsafety.rs` as a libfuzzer target
+(`bytecode-verifier-libfuzzer` crate). libfuzzer mutates the fuzzed function body with coverage
+feedback; the same production-faithful per-function gate (`stack_usage → type_safety →
+locals_safety`) runs before comparing the two reference checkers.
+
+**Result of one 500-second run:**
+
+| metric | value |
+|---|---|
+| executions | 1,152,359 |
+| exec/sec | ~2,300 |
+| new coverage units discovered | 4,303 |
+| crashes / candidate-P divergences | **0** |
+
+Coverage genuinely expanded (4,303 new units, corpus grew to ~1,500 inputs) — this is real guided
+exploration, not blind spraying — and it surfaced **no divergence**.
+
+### False positives triaged (important methodology note)
+
+The first two cargo-fuzz crashes were **not** divergences. Both were debug-only `safe_assert!`
+panics in the bounds checker (`check_bounds.rs:531` and `:562`) on deprecated global-storage ops.
+The `safe_assert!` macro is:
+
+```rust
+if cfg!(debug_assertions) { panic!("{:?}", err) } else { return Err(err); }
+```
+
+cargo-fuzz enables `debug_assertions`, so these panic under fuzzing but **return a clean `Err` in
+release/production** — not bugs, exactly the "debug_assert removed in release" class. The target was
+hardened (`ok()` + `catch_unwind`) to fold any debug-only verifier panic into the release-equivalent
+"reject", so the campaign reflects production behavior and only a genuine candidate-P aborts.
+
 ## The one real asymmetry (not exploitable)
 
 Before adding `StackUsageVerifier` to the gate, the graph checker **panicked** with
